@@ -1,0 +1,49 @@
+from time import *
+import random as rand
+
+def mistake(partest,usertest):
+    error=0
+    for i in range(len(partest)):
+        try:
+            if partest[i] != usertest[i]:
+                error = error + 1
+        except Exception as e:
+            error = error + 1
+
+    return error
+
+def speedtime(timestrt,timend,userinpt):
+    timedelay = timend - timestrt
+    timeroundoff = round(timedelay,2)
+    speed = len(userinpt)/timeroundoff
+    return round(speed)
+
+
+
+while True:
+    ck = input("ready to test : yes/no : ")
+    if ck == "yes":
+        test = ["A paragraph is a self contained unit of discourse in writing witha particular point or idea"
+        "my name is jatin kumar","welcome to my github repository",
+        "This form allows you to generate random text strings",
+        "The randomness comes from atmospheric noise","Check out our File Generation Service"]
+        test1 = rand.choice(test)
+        print("*****   typing speed calculator   *****")
+        print(test1)
+        print()
+        print()
+
+        time1 = time()
+        testin = input("Start Typing")
+        time2 = time()
+
+        print('speed : ',speedtime(time1,time2,testin),"w/sec")
+        print('Error : ',mistake(test1,testin))
+
+    elif ck == 'no':
+        print('Thank You')
+        break
+    else:
+        print("wrong input")
+
+
